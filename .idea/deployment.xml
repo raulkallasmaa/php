@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="138.68.68.130">
+    <serverData>
+      <paths name="138.68.68.130">
+        <serverdata>
+          <mappings>
+            <mapping deploy="138.68.68.130/~raul.kallasmaa/phpStorm" local="$PROJECT_DIR$" web="138.68.68.130/~raul.kallasmaa/phpStorm" />
+            <mapping local="" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

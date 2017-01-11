@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d1315068-6b38-412f-9c2f-53adcdd613a5" name="138.68.68.130" url="http://138.68.68.130/home/raul.kallasmaa/phpStorm">
+        <fileTransfer host="138.68.68.130" port="22" rootFolder="/home/raul.kallasmaa" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
