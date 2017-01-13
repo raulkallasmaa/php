@@ -12,8 +12,7 @@ define('TMPL_DIR', 'tmpl/');
 require_once CLASSES_DIR.'template.php';
 // and use it
 // create an empty template object
-// tere
-$tmpl = new template('main.html');
+$tmpl = new template('main');
 // set up the file name for template
 $tmpl->file = 'main.html';
 // control the content of template object

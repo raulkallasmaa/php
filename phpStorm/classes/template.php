@@ -15,6 +15,7 @@ class template
 {
     var $file = ''; // template file name
     var $constant = false; //template content - now is empty
+    var $vars = array(); // table for real values of html template output
 
     // class methods
     // construct
