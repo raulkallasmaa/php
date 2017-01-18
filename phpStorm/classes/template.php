@@ -51,5 +51,16 @@ class template
     }// loadFile
     function readFile($f){
         $this->content = file_get_contents($f);
-    }
+            }// readFile
+    function set($name, $val){
+        $this->vars[$name] = $val;
+    } //set
+    function parse(){
+        $str = $this->content;
+        foreach ($this->vars as $name=>$val){
+            $str = str_replace('{'.$name.'}', $val, $str);
+        }
+        // return template content with real values
+        return $str;
+    }// parse
 }// class end

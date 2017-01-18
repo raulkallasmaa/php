@@ -1,9 +1,10 @@
+<!--
 <!DOCTYPE html>
-<!-- /tmpl/main.html - main template of page-->
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
-    <title>[Title]</title>
+    <title>Title</title>
 </head>
 <body>
 <table width="90%" border="1">
@@ -16,5 +17,32 @@
         <td colspan="2">{content}</td>
     </tr>
 </table>
+</body>
+</html>-->
+<!doctype html>
+<html>
+<head>
+    <title>{header}</title>
+    <!--<meta charset="utf-8"/>-->
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        {header}
+    </div>
+    <div id="navigatsioon">
+        <ul class="nav_menu">
+            <li>{nav_bar}</li>
+            <li>{lang_bar}</li>
+        </ul>
+    </div>
+    <div id="menu">{menu}</div>
+    <div id="content">{content}</div>
+    <div id="clear"></div>
+    <div id="footer">
+        &copy; Tartu Kutsehariduskeskus 2017
+    </div>
+</div>
 </body>
 </html>
