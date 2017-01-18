@@ -51,6 +51,19 @@ echo '<hr />';
 $http->set('kasutaja', 'Raul');
 $http->set('tund', 'php programmeerimisvahendid');
 // control $http->vars object output
-echo '<pre>';
+/*echo '<pre>';
 print_r($http->vars);
-echo '</pre>';
+echo '</pre>';*/
+// control link creation
+$link = $http->getLink(array('kasutaja'=>'raul', 'parool'=>'qwerty'));
+//echo $link.'<br />';
+// control http output
+//echo '<pre>';
+//print_r($http);
+//echo '</pre>';
+//// control element value by name
+//echo $http->get('act');
+//
+// control actions
+// import act file
+require_once 'act.php';

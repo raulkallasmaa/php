@@ -31,19 +31,28 @@ class template
             echo 'Kataloogi '.TMPL_DIR.' ei ole leitud<br/>';
             exit;
         }
+        // if we already in tmpl directory - $this->file is 'tmpl/file.html'
         if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         }
-        // we can set path to template file: tmpl/file.html
+        // we can set path to template file: tmpl/file.html, $this->file is file.html
         $f = TMPL_DIR.$this->file;
-        if(file_exists($f) and is_file($f) and is_readable($f)) {
+        if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         }
-        // we can set only file name, $this->
+        // we can set only file name, $this->file is file
         $f = TMPL_DIR.$this->file.'.html';
-        if(file_exists($f) and is_file($f) and is_readable($f)) {
+        if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         }
+        // if html template files are in inner directories
+        // represented as dir.file
+        $f = TMPL_DIR.str_replace('.', '/', $this->file).'.html';
+        // allow to read inner file content
+        if(file_exists($f) and is_file($f) and is_readable($f)){
+            $this->readFile($f);
+        }
+        // if some problems
         if($this->content === false){
             echo 'Ei saanud lugeda faili '.$this->file.'.<br/>';
             exit;
@@ -51,10 +60,24 @@ class template
     }// loadFile
     function readFile($f){
         $this->content = file_get_contents($f);
-            }// readFile
+    }// readFile
+    // set up html template elements and their real values
+    // $name - template element name
+    // $val - real value for template element
     function set($name, $val){
         $this->vars[$name] = $val;
-    } //set
+    }// set
+    // add to html template another real values
+    function add($name, $val){
+        if(!isset($this->vars[$name])){
+            $this->set($name, $val);
+        } else {
+            // $this->vars[$name] = $this->vars[$name].$val;
+            $this->vars[$name] .= $val;
+        }
+    }// add
+    // parse template content and replace template table names by
+    // template table real values
     function parse(){
         $str = $this->content;
         foreach ($this->vars as $name=>$val){
