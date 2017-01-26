@@ -42,3 +42,7 @@ print_r($res);
 echo '</pre>';
 // query time control
 $db->showHistory();
+
+echo '<pre>';
+print_r($sess);
+echo '</pre>';
