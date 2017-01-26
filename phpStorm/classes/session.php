@@ -25,6 +25,7 @@ class session
     $this->createSession();
     $this->checkSession();
     $this->deleteSession();
+    $this->del();
     }// construct end
 
     // create session
@@ -109,5 +110,11 @@ class session
                 $this->http->del('sid');
             }
         } // deleteSession
+        // delete http data element
+        function del($name){
+            if(isset($this->vars[$name])){
+                unset($this->vars[$name]);
+            }
+        }// del
 
 }// class end
