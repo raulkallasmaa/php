@@ -24,6 +24,7 @@ class session
     $this->sid = $http->get('sid');
     $this->createSession();
     $this->checkSession();
+    $this->deleteSession();
     }// construct end
 
     // create session
@@ -96,5 +97,17 @@ class session
             define('ROLE_ID', 0);
             define('USER_ID', 0);
         }
-        }
+        }// check session
+
+        // delete session by request
+        function deleteSession(){
+            if($this->sid !== false){
+                $sql = 'DELETE FROM session WHERE '.
+                    'sid='.fixDb($this->sid);
+                $this->db->query($sql);
+                $this->sid = false;
+                $this->http->del('sid');
+            }
+        } // deleteSession
+
 }// class end
