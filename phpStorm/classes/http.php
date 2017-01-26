@@ -5,6 +5,10 @@
  * Date: 18.01.2017
  * Time: 2:28
  */
+// useful function
+function fixHtml($val){
+    return htmlentities($val);
+}// fixHtml
 class http
 {// http begin
     // class variables

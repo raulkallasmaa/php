@@ -6,64 +6,39 @@
  * Date: 12.01.2017
  * Time: 13:01
  */
-// create and template object
-define('CLASSES_DIR', 'classes/');
-define('TMPL_DIR', 'tmpl/');
-require_once CLASSES_DIR.'template.php';
-// and use it
-// create an empty template object
-$tmpl = new template('main');
+// import configuration
+require_once 'conf.php';
+// create an template object,
 // set up the file name for template
-// control the content of template object
 // load template file content
-// add pairs of template element names and real values
+$tmpl = new template('main');
+// add pairs of temlate element names and real values
+$tmpl->set('style', STYLE_DIR.'main'.'.css');
+$tmpl->set('header', 'minu lehe pealkiri');
+// create and output menu
+// import menu file
+require_once 'menu.php'; // in this file is menu creation
+$tmpl->set('menu', $menu->parse());
 
-/*echo '<pre>';
-print_r($tmpl);
-echo '</pre>';
-*/
-$tmpl->set('title', 'minu pealkiri');
-$tmpl->set('menu', 'minu menüü');
 $tmpl->set('nav_bar', 'minu navigatsioon');
 $tmpl->set('lang_bar', 'minu keeleriba');
 $tmpl->set('content', 'minu sisu');
-/*
-echo '<pre>';
-print_r($tmpl);
-echo '</pre>';
-*/
+// output template content set up with real values
 echo $tmpl->parse();
-// import http class
-require_once CLASSES_DIR.'http.php';
-// create and output http object
-$http = new http();
-// control http object output
-echo '<pre>';
-print_r($http);
-echo '</pre>';
-// control http constants
-echo REMOTE_ADDR.'<br />';
-echo PHP_SELF.'<br />';
-echo SCRIPT_NAME.'<br />';
-echo HTTP_HOST.'<br />';
-echo '<hr />';
-// create http data pairs and set up into $http->vars array
-$http->set('kasutaja', 'Raul');
-$http->set('tund', 'php programmeerimisvahendid');
-// control $http->vars object output
-/*echo '<pre>';
-print_r($http->vars);
-echo '</pre>';*/
-// control link creation
-$link = $http->getLink(array('kasutaja'=>'raul', 'parool'=>'qwerty'));
-//echo $link.'<br />';
-// control http output
-//echo '<pre>';
-//print_r($http);
-//echo '</pre>';
-//// control element value by name
-//echo $http->get('act');
-//
 // control actions
 // import act file
 require_once 'act.php';
+// control database object
+// create test query
+$sql = 'SELECT NOW();';
+$res = $db->getArray($sql);
+$sql = 'SELECT NOW();';
+$res = $db->getArray($sql);
+$sql = 'SELECT NOW();';
+$res = $db->getArray($sql);
+// control database query result
+echo '<pre>';
+print_r($res);
+echo '</pre>';
+// query time control
+$db->showHistory();
