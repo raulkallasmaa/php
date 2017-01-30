@@ -23,6 +23,7 @@ $tmpl->set('menu', $menu->parse());
 $tmpl->set('nav_bar', 'minu navigatsioon');
 $tmpl->set('lang_bar', 'minu keeleriba');
 $tmpl->set('content', 'minu sisu');
+$tmpl->set('nav_bar', $sess->user_data['username']);
 // output template content set up with real values
 echo $tmpl->parse();
 // control actions
@@ -41,6 +42,7 @@ echo '<pre>';
 print_r($res);
 echo '</pre>';
 // query time control
+$sess->flush();
 $db->showHistory();
 
 echo '<pre>';

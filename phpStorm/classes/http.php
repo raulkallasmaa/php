@@ -59,4 +59,18 @@ class http
             unset($this->vars[$name]);
         }
     }// del
+    // redirect
+    function redirect($url = false)
+    {
+        global $sess;
+        $sess->flush();
+
+        if($url == false)
+        {
+            $url = $this->getLink();
+        }
+        $url = str_replace('&amp;', '&', $url);
+        header('Location: '.$url);
+        exit;
+    } // redirect
 }// http end
